@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>coma.fm</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="lava-container">
@@ -16,10 +16,12 @@
   </div>
 
   <div class="player-ui">
-    <audio id="coma-audio" controls autoplay>
-      <source src="https://stream.radio.co/s213997" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <div class="audio-wrap">
+      <audio id="coma-audio" controls autoplay>
+        <source src="https://stream.radio.co/s213997" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
     <div class="track-meta">
       <span id="track-title">Loading…</span> — <span id="track-artist">...</span>
       <button id="info-btn">i</button>
