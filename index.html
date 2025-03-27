@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>coma.fm</title>
@@ -16,11 +15,15 @@
     <div class="overlay"></div>
   </div>
 
-  <div class="player-box">
+  <div class="player-ui">
+    <audio id="coma-audio" controls autoplay>
+      <source src="https://stream.radio.co/s213997" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <div class="track-meta">
       <span id="track-title">Loading…</span> — <span id="track-artist">...</span>
+      <button id="info-btn">i</button>
     </div>
-    <button id="info-btn">i</button>
   </div>
 
   <div class="passport-modal hidden" id="passport">
