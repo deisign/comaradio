@@ -1,26 +1,29 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const track = {
-    title: "Human Fly",
-    artist: "The Cramps",
-    album: "Songs the Lord Taught Us",
-    year: "1980",
-    tags: ["psychobilly", "garage", "rockabilly"],
-    cover: "https://lastfm.freetls.fastly.net/i/u/300x300/35b8c8c127be4d9b9c3df0141a18e3e7.jpg"
-  };
-
-  document.getElementById("track-title").innerText = track.title;
-  document.getElementById("track-artist").innerText = track.artist;
-
-  const infoBtn = document.getElementById("info-btn");
+  const titleEl = document.getElementById("track-title");
+  const artistEl = document.getElementById("track-artist");
   const modal = document.getElementById("passport");
 
-  infoBtn.addEventListener("click", () => {
+  fetch("https://public.radio.co/stations/s213997/status")
+    .then(res => res.json())
+    .then(data => {
+      const track = data.current_track;
+      if (!track) return;
+
+      titleEl.innerText = track.title || "Unknown Title";
+      artistEl.innerText = track.artist || "Unknown Artist";
+
+      document.getElementById("cover").src = track.artwork_url_large || "";
+      document.getElementById("title").innerText = track.title;
+      document.getElementById("artist").innerText = track.artist;
+      document.getElementById("album-meta").innerText = "";
+      document.getElementById("tags").innerHTML = "";
+    })
+    .catch(err => {
+      console.error("Failed to load track info:", err);
+    });
+
+  document.getElementById("info-btn").addEventListener("click", () => {
     modal.classList.toggle("hidden");
-    document.getElementById("cover").src = track.cover;
-    document.getElementById("title").innerText = track.title;
-    document.getElementById("artist").innerText = track.artist;
-    document.getElementById("album-meta").innerText = `${track.album} • ${track.year}`;
-    document.getElementById("tags").innerHTML = track.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ");
   });
 });
