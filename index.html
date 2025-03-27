@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>coma.fm</title>
@@ -7,34 +8,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="lava"></canvas>
+  <div class="lava-container">
+    <div class="lava-blob blob1"></div>
+    <div class="lava-blob blob2"></div>
+    <div class="lava-blob blob3"></div>
+    <div class="lava-blob blob4"></div>
+    <div class="overlay"></div>
+  </div>
 
   <div class="player-box">
-    <div class="track-info">
-      <span class="track-title">Human Fly</span> — <span class="track-artist">The Cramps</span>
+    <div class="track-meta">
+      <span id="track-title">Loading…</span> — <span id="track-artist">...</span>
     </div>
     <button id="info-btn">i</button>
   </div>
 
   <div class="passport-modal hidden" id="passport">
     <div class="modal-box">
-      <img src="https://lastfm.freetls.fastly.net/i/u/300x300/35b8c8c127be4d9b9c3df0141a18e3e7.jpg" class="cover" />
-      <h2>Human Fly</h2>
-      <h3>The Cramps</h3>
-      <p>Songs the Lord Taught Us • 1980</p>
-      <div class="tags">
-        <span class="tag">psychobilly</span>
-        <span class="tag">garage</span>
-        <span class="tag">rockabilly</span>
-      </div>
+      <img id="cover" src="" class="cover" />
+      <h2 id="title">...</h2>
+      <h3 id="artist">...</h3>
+      <p id="album-meta">…</p>
+      <div class="tags" id="tags"></div>
     </div>
   </div>
 
-  <script src="lava.js"></script>
-  <script>
-    document.getElementById("info-btn").addEventListener("click", () => {
-      document.getElementById("passport").classList.toggle("hidden");
-    });
-  </script>
+  <script src="player.js"></script>
 </body>
 </html>
