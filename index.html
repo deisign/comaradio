@@ -5,20 +5,36 @@
   <title>coma.fm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="lava.css">
-  <script src="lava.js" defer></script>
-  <script src="player-weblet.js" defer></script>
-  <script src="track-passport.js" defer></script>
 </head>
 <body>
-  <div class="lava-background"></div>
-  <div class="content">
-    <div id="player-container">
-      <!-- Плеєр буде сюди підключено -->
+  <canvas id="lava"></canvas>
+
+  <div class="player-box">
+    <div class="track-info">
+      <span class="track-title">Human Fly</span> — <span class="track-artist">The Cramps</span>
     </div>
-    <div id="track-passport" class="hidden">
-      <!-- Паспорт треку -->
+    <button id="info-btn">i</button>
+  </div>
+
+  <div class="passport-modal hidden" id="passport">
+    <div class="modal-box">
+      <img src="https://lastfm.freetls.fastly.net/i/u/300x300/35b8c8c127be4d9b9c3df0141a18e3e7.jpg" class="cover" />
+      <h2>Human Fly</h2>
+      <h3>The Cramps</h3>
+      <p>Songs the Lord Taught Us • 1980</p>
+      <div class="tags">
+        <span class="tag">psychobilly</span>
+        <span class="tag">garage</span>
+        <span class="tag">rockabilly</span>
+      </div>
     </div>
   </div>
+
+  <script src="lava.js"></script>
+  <script>
+    document.getElementById("info-btn").addEventListener("click", () => {
+      document.getElementById("passport").classList.toggle("hidden");
+    });
+  </script>
 </body>
 </html>
